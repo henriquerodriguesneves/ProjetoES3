@@ -1,0 +1,17 @@
+create database projetoPOO;
+
+use projetoPOO;
+
+create table funcionario(
+			cpf char(11) primary key,
+			nome char(100) not null,
+			dataAdmissao date not null,
+			telefone char(11) not null,
+			endereco char(150) not null);
+			
+create table produto(
+			codigo int primary key,
+			descricao varchar(100) not null,
+			fabricante varchar(50) not null,
+			tipo varchar(20) not null,
+			lote int not null);
