@@ -15,3 +15,27 @@ create table produto(
 			fabricante varchar(50) not null,
 			tipo varchar(20) not null,
 			lote int not null);
+
+
+
+/*Everton*Fornecedor*/
+create table fornecedor(
+             id int primary key,
+             nome char(100) not null,
+             prazo date not null,
+             produto char(150) not null,
+             telefone char(15) not null,
+             CNPJ char(20) not null);
+
+select * from fornecedor;
+
+/*Everton*Loja*/
+create table loja(
+             id int primary key,
+             nome char(100) not null,
+             dataCadastro date not null,
+             endereco char(150) not null,
+             telefone char(15) not null,
+             CNPJ char(20) not null);
+
+select * from loja;
