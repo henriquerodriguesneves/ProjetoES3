@@ -51,8 +51,8 @@ public class ClienteBoundary extends Application {
         grid.add(txtCpf, 1, 4);
         grid.add(btnAdicionar, 0, 5);
         grid.add(btnPesquisar, 1, 5);
-        grid.add(btnLimpar, 0, 6);
-        grid.add(btnSair, 1, 6);
+        grid.add(btnLimpar, 2, 5);
+        grid.add(btnSair, 3, 5);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateStringConverter ldc =

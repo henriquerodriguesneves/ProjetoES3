@@ -48,8 +48,8 @@ public class CupomBoundary extends Application {
         grid.add(txtValor, 1, 3);
         grid.add(btnAdicionar, 0, 4);
         grid.add(btnPesquisar, 1, 4);
-        grid.add(btnLimpar, 0, 5);
-        grid.add(btnSair, 1, 5);
+        grid.add(btnLimpar, 2, 4);
+        grid.add(btnSair, 3, 4);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateStringConverter ldc =

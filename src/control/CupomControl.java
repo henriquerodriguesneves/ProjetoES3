@@ -84,6 +84,7 @@ public class CupomControl {
     	this.valorProperty().setValue("");
     	this.codigoProperty().setValue("");
     	this.valorProperty().setValue("");
+    	this.dataProperty().setValue(null);
     }
     
     public TableView getTable() {
