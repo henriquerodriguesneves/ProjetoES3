@@ -45,8 +45,8 @@ public class FuncionarioBoundary extends Application{
 		grid.add(txtEndereco, 1, 4);
 		grid.add(btnAdd, 0, 5);
 		grid.add(btnPesquisar, 1, 5);
-		grid.add(btnSair, 1, 6);
-		grid.add(btnLimpar, 0, 6);
+		grid.add(btnLimpar, 2, 5);
+		grid.add(btnSair, 3, 5);
 		
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDateStringConverter ldc = new LocalDateStringConverter(formatter, null);
@@ -73,8 +73,8 @@ public class FuncionarioBoundary extends Application{
 		stage.show();
 	}
 	
-	public static void main(String[] args) {
-		Application.launch(FuncionarioBoundary.class, args);
-	}
+//	public static void main(String[] args) {
+//		Application.launch(FuncionarioBoundary.class, args);
+//	}
 
 }

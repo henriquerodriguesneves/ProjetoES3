@@ -20,7 +20,7 @@ create table produto(
 
 /*Everton*Fornecedor*/
 create table fornecedor(
-             id int primary key,
+             id int primary key AUTO_INCREMENT,
              nome char(100) not null,
              prazo date not null,
              produto char(150) not null,
@@ -31,7 +31,7 @@ select * from fornecedor;
 
 /*Everton*Loja*/
 create table loja(
-             id int primary key,
+             id int primary key AUTO_INCREMENT,
              nome char(100) not null,
              dataCadastro date not null,
              endereco char(150) not null,

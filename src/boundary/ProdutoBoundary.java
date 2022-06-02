@@ -24,6 +24,9 @@ public class ProdutoBoundary extends Application{
 	private Button btnLimpar = new Button("Limpar");
 //	private Button btnVoltar = new Button("Voltar");
 	private ProdutoControl control = new ProdutoControl();
+//	private MenuPrincipal menu = new MenuPrincipal();
+	
+	
 	
 	
 	@Override
@@ -45,9 +48,10 @@ public class ProdutoBoundary extends Application{
 		grid.add(txtLote, 1, 4);
 		grid.add(btnAdd, 0, 5);
 		grid.add(btnPesquisar, 1, 5);
-		grid.add(btnSair, 1, 6);
-//		grid.add(btnVoltar, 0, 6);
-		grid.add(btnLimpar, 0, 6);
+		grid.add(btnLimpar, 2, 5);
+		grid.add(btnSair, 3, 5);
+//		grid.add(btnVoltar, 4, 5);
+		
 		
 		Bindings.bindBidirectional(control.codigoProperty(), txtCodigo.textProperty());
 		Bindings.bindBidirectional(control.descricaoProperty(), txtDescricao.textProperty());
@@ -66,6 +70,7 @@ public class ProdutoBoundary extends Application{
 //		btnVoltar.setOnAction(e -> {
 //			try {
 //				menu.start(stage);
+//				
 //			} catch (Exception e2) {
 //				 e2.printStackTrace();
 //			}
