@@ -3,17 +3,17 @@ package model;
 import java.time.LocalDate;
 
 public class Cliente {
-	private int id;
+	private String id;
 	private String nome;
 	private LocalDate DataNasc;
 	private String endereco;
 	private String telefone;
 	private String cpf;
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getNome() {

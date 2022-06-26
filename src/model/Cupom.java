@@ -3,16 +3,16 @@ package model;
 import java.time.LocalDate;
 
 public class Cupom {
-	private int id;
+	private String id;
 	private String nome;
 	private LocalDate validade;
 	private String codigo;
-	private String valor = "Henrique";
+	private String valor;
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getNome() {
