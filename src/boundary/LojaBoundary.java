@@ -25,6 +25,7 @@ public class LojaBoundary extends Application {
     private Button btnLimpar = new Button("Limpar");
     private Button btnSair = new Button(" Sair ");
     private LojaControl control = new LojaControl();
+    private Button btnCNPJ = new Button("CNPJ");
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -46,6 +47,7 @@ public class LojaBoundary extends Application {
         grid.add(btnPesquisar, 1, 5);
         grid.add(btnLimpar, 2, 5);
         grid.add(btnSair, 3, 5);
+        grid.add(btnCNPJ, 4, 5);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateStringConverter ldc =
@@ -67,6 +69,9 @@ public class LojaBoundary extends Application {
         btnSair.setOnAction(e -> System.exit(0));
 
         btnLimpar.setOnAction(e -> control.limparCampos());
+        
+        System.out.println(btnCNPJ.getOnAction());
+ //       btnCNPJ.setOnAction(e -> )
 
         Scene scn = new Scene(principal, 600, 400);
         stage.setScene(scn);

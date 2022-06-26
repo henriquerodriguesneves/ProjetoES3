@@ -6,16 +6,15 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.Cupom;
 import persistence.CupomDAOImpl;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-//import boundary.CupomBoundary;
-import entity.Cupom;
-
 public class CupomControl {
+	private Cupom cupom = new Cupom();
     private ObservableList<Cupom> cupons = FXCollections.observableArrayList();
 
     private StringProperty nome = new SimpleStringProperty("");
@@ -78,7 +77,12 @@ public class CupomControl {
         cupons.clear();
         cupons.addAll(lista);
     }
-
+    
+    public void mostraValor()
+    {
+    	System.out.println(cupom.getValor());
+    	
+    }
     public void limparCampos() {
     	this.nomeProperty().setValue("");
     	this.valorProperty().setValue("");

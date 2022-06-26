@@ -2,13 +2,13 @@ package control;
 
 import persistence.LojasDAO;
 import persistence.LojasDAOimpl;
-import entity.Loja;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.Loja;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

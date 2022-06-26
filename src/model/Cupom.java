@@ -1,4 +1,4 @@
-package entity;
+package model;
 
 import java.time.LocalDate;
 
@@ -7,7 +7,7 @@ public class Cupom {
 	private String nome;
 	private LocalDate validade;
 	private String codigo;
-	private String valor;
+	private String valor = "Henrique";
 	
 	public int getId() {
 		return id;
@@ -37,7 +37,7 @@ public class Cupom {
 		return valor;
 	}
 	public void setValor(String valor) {
-		this.valor = valor;
+		this.valor = "Henrique";
 	}
 
 

@@ -1,11 +1,11 @@
-package entity;
+package model;
 
 import java.time.LocalDate;
 
-public class Loja {
+public class Fornecedor {
     private String nome = "";
-    private LocalDate dataCadastro = LocalDate.now();
-    private String endereco = "";
+    private LocalDate prazo = LocalDate.now();
+    private String produto = "";
     private String telefone = "";
     private String CNPJ = "";
 
@@ -16,19 +16,19 @@ public class Loja {
         this.nome = nome;
     }
 
-    public LocalDate getDataCadastro() {
-        return dataCadastro;
+    public LocalDate getPrazo() {
+        return prazo;
     }
-    public void setDataCadastro(LocalDate dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public String getEndereco() {
-        return endereco;
+    public void setPrazo(LocalDate prazo) {
+        this.prazo = prazo;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public String getProduto() {
+        return produto;
+    }
+
+    public void setProduto(String produto) {
+        this.produto = produto;
     }
 
     public String getTelefone() {

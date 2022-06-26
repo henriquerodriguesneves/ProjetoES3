@@ -1,11 +1,34 @@
-package entity;
+package model;
 
-public class ProdutoEntity {
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+
+@Entity
+@Table(name = "produtos")
+public class ProdutoModel {
 	
+	@Id
+	@Column(name = "codigo_produto")
+	@NotNull
 	private String codigo;
+	
+	@Column(name = "descricao_produto", length = 50)
+	@NotNull
 	private String descricao;
+	
+	@Column(name = "fabricante_produto", length = 50)
+	@NotNull
 	private String fabricante;
+	
+	@Column(name = "tipo_produto", length = 20)
+	@NotNull
 	private String tipo;
+	
+	@Column(name = "lote_produto", length = 10)
+	@NotNull
 	private String lote;
 	
 	public String getCodigo() {

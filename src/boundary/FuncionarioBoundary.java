@@ -1,5 +1,6 @@
 package boundary;
 
+import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 
 import control.FuncionarioControl;
@@ -13,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.converter.LocalDateStringConverter;
+import model.FuncionarioModel;
 
 public class FuncionarioBoundary extends Application{
 	private TextField txtCpf = new TextField();
@@ -60,9 +62,27 @@ public class FuncionarioBoundary extends Application{
 		
 		principal.setBottom(control.getTable());
 		
-		btnAdd.setOnAction(e -> control.adicionar());
+		FuncionarioModel fModel = new FuncionarioModel();
+		
+		btnAdd.setOnAction(e -> {
+			try {
+				control.salvar(fModel);
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
+		
 		btnLimpar.setOnAction( e -> control.limparCampos());
-		btnPesquisar.setOnAction(e -> control.pesquisar());
+		
+		btnPesquisar.setOnAction(e -> {
+			try {
+				control.consultar(fModel);
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
 		btnSair.setOnAction(e -> {
 			System.exit(0);
 		});
@@ -73,8 +93,8 @@ public class FuncionarioBoundary extends Application{
 		stage.show();
 	}
 	
-//	public static void main(String[] args) {
-//		Application.launch(FuncionarioBoundary.class, args);
-//	}
+	public static void main(String[] args) {
+		Application.launch(FuncionarioBoundary.class, args);
+	}
 
 }

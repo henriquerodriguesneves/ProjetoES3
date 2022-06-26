@@ -1,5 +1,7 @@
 package boundary;
 
+import java.sql.SQLException;
+
 import control.ProdutoControl;
 import javafx.application.Application;
 import javafx.beans.binding.Bindings;
@@ -10,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import model.ProdutoModel;
 
 public class ProdutoBoundary extends Application{
 	
@@ -61,8 +64,24 @@ public class ProdutoBoundary extends Application{
 		
 		principal.setBottom(control.getTable());
 		
-		btnAdd.setOnAction(e -> control.adcionar());
-		btnPesquisar.setOnAction(e -> control.pesuisar());
+		ProdutoModel pModel = new ProdutoModel();
+		btnAdd.setOnAction(e -> {
+			try {
+				control.salvar(pModel);
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
+		
+		btnPesquisar.setOnAction(e -> {
+			try {
+				control.consultar(pModel);
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
 		btnLimpar.setOnAction(e -> control.limparCampos());
 		btnSair.setOnAction(e -> {
 			System.exit(0);
