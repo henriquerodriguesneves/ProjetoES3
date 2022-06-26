@@ -8,6 +8,9 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
+import model.FuncionarioModel;
+import model.ProdutoModel;
+
 
 public class HibernateUtil {
 	
@@ -28,8 +31,8 @@ public class HibernateUtil {
 				settings.put(Environment.HBM2DDL_AUTO, "update");
 				
 				configuration.setProperties(settings);
-//				configuration.addAnnotatedClass(Funcionario.class);
-//				configuration.addAnnotatedClass(Atendente.class);
+				configuration.addAnnotatedClass(FuncionarioModel.class);
+				configuration.addAnnotatedClass(ProdutoModel.class);
 //				configuration.addAnnotatedClass(Entregador.class);
 //				configuration.addAnnotatedClass(Cliente.class);
 //				configuration.addAnnotatedClass(Atendimento.class);

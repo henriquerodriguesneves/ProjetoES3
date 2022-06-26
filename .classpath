@@ -2,32 +2,6 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_202"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/antlr4-runtime-4.9.1.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/byte-buddy-1.12.8.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/classmate-1.5.1.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/hibernate-commons-annotations-6.0.0.CR1.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/hibernate-core-6.0.0.Final.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/hibernate-validator-7.0.4.Final.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/istack-commons-runtime-4.0.1.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/jakarta.activation-2.0.1.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/jakarta.activation-api-2.0.1.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/jakarta.el-4.0.0.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/jakarta.el-api-4.0.0.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/jakarta.inject-api-2.0.0.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/jakarta.persistence-api-3.0.0.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/jakarta.transaction-api-2.0.0.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/jakarta.validation-api-3.0.0.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/jakarta.xml.bind-api-3.0.1.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/jandex-2.4.2.Final.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/javax.el-api-3.0.0.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/javax.inject-1.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/jaxb-core-3.0.2.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/jaxb-runtime-3.0.2.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/jboss-logging-3.4.3.Final.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/jtds-1.3.1.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/mysql-connector-java-8.0.28.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/protobuf-java-3.11.4.jar"/>
-	<classpathentry kind="lib" path="/Hibernate_DDL/src/lib/txw2-3.0.2.jar"/>
 	<classpathentry kind="lib" path="lib/antlr4-runtime-4.9.1.jar"/>
 	<classpathentry kind="lib" path="lib/byte-buddy-1.12.8.jar"/>
 	<classpathentry kind="lib" path="lib/classmate-1.5.1.jar"/>
@@ -54,5 +28,31 @@
 	<classpathentry kind="lib" path="lib/mysql-connector-java-8.0.28.jar"/>
 	<classpathentry kind="lib" path="lib/protobuf-java-3.11.4.jar"/>
 	<classpathentry kind="lib" path="lib/txw2-3.0.2.jar"/>
+	<classpathentry kind="lib" path="src/lib/antlr4-runtime-4.9.1.jar"/>
+	<classpathentry kind="lib" path="src/lib/byte-buddy-1.12.8.jar"/>
+	<classpathentry kind="lib" path="src/lib/classmate-1.5.1.jar"/>
+	<classpathentry kind="lib" path="src/lib/hibernate-commons-annotations-6.0.0.CR1.jar"/>
+	<classpathentry kind="lib" path="src/lib/hibernate-core-6.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="src/lib/hibernate-validator-7.0.4.Final.jar"/>
+	<classpathentry kind="lib" path="src/lib/istack-commons-runtime-4.0.1.jar"/>
+	<classpathentry kind="lib" path="src/lib/jakarta.activation-2.0.1.jar"/>
+	<classpathentry kind="lib" path="src/lib/jakarta.activation-api-2.0.1.jar"/>
+	<classpathentry kind="lib" path="src/lib/jakarta.el-4.0.0.jar"/>
+	<classpathentry kind="lib" path="src/lib/jakarta.el-api-4.0.0.jar"/>
+	<classpathentry kind="lib" path="src/lib/jakarta.inject-api-2.0.0.jar"/>
+	<classpathentry kind="lib" path="src/lib/jakarta.persistence-api-3.0.0.jar"/>
+	<classpathentry kind="lib" path="src/lib/jakarta.transaction-api-2.0.0.jar"/>
+	<classpathentry kind="lib" path="src/lib/jakarta.validation-api-3.0.0.jar"/>
+	<classpathentry kind="lib" path="src/lib/jakarta.xml.bind-api-3.0.1.jar"/>
+	<classpathentry kind="lib" path="src/lib/jandex-2.4.2.Final.jar"/>
+	<classpathentry kind="lib" path="src/lib/javax.el-api-3.0.0.jar"/>
+	<classpathentry kind="lib" path="src/lib/javax.inject-1.jar"/>
+	<classpathentry kind="lib" path="src/lib/jaxb-core-3.0.2.jar"/>
+	<classpathentry kind="lib" path="src/lib/jaxb-runtime-3.0.2.jar"/>
+	<classpathentry kind="lib" path="src/lib/jboss-logging-3.4.3.Final.jar"/>
+	<classpathentry kind="lib" path="src/lib/jtds-1.3.1.jar"/>
+	<classpathentry kind="lib" path="src/lib/mysql-connector-java-8.0.28.jar"/>
+	<classpathentry kind="lib" path="src/lib/protobuf-java-3.11.4.jar"/>
+	<classpathentry kind="lib" path="src/lib/txw2-3.0.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
