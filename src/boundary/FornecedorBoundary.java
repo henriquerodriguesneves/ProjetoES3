@@ -48,8 +48,7 @@ public class FornecedorBoundary extends Application {
         grid.add(btnSair, 3, 5);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDateStringConverter ldc =
-                new LocalDateStringConverter(formatter, null);
+        LocalDateStringConverter ldc = new LocalDateStringConverter(formatter, null);
 
         Bindings.bindBidirectional(control.nomeProperty(), txtNome.textProperty());
         Bindings.bindBidirectional(txtPrazo.textProperty(), control.prazoProperty(), ldc);
@@ -57,9 +56,11 @@ public class FornecedorBoundary extends Application {
         Bindings.bindBidirectional(control.telefoneProperty(), txtTelefone.textProperty());
         Bindings.bindBidirectional(control.CNPJProperty(), txtCNPJ.textProperty());
 
+        FornecedorModel fModel = new FornecedorModel();
+
         principal.setCenter(control.getTable());
 
-        btnAdicionar.setOnAction( e -> control.adicionar());
+        btnAdicionar.setOnAction(e -> control.adicionar());
 
         btnPesquisar.setOnAction(e -> control.pesquisar());
 
@@ -69,7 +70,7 @@ public class FornecedorBoundary extends Application {
 
         Scene scn = new Scene(principal, 600, 400);
         stage.setScene(scn);
-        stage.setTitle("Fornecedores: ");
+        stage.setTitle("Fornecedor: ");
         stage.show();
     }
 
