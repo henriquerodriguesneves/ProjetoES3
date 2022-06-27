@@ -30,7 +30,6 @@ public class CupomBoundary extends Application {
     private Button btnPesquisar = new Button("Pesquisar");
     private Button btnLimpar = new Button("Limpar");
     private Button btnSair = new Button(" Sair ");
-    private Button btnX = new Button("Valor");
     private CupomControl control = new CupomControl();
 
     @Override
@@ -51,7 +50,7 @@ public class CupomBoundary extends Application {
         grid.add(btnPesquisar, 1, 4);
         grid.add(btnLimpar, 2, 4);
         grid.add(btnSair, 3, 4);
-        grid.add(btnX, 0, 5);
+
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateStringConverter ldc =
