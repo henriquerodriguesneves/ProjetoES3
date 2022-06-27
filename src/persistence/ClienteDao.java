@@ -10,9 +10,9 @@ import org.hibernate.SessionFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Query;
-import model.Cliente;
+import model.ClienteModel;
 
-public class ClienteDao implements Dao<Cliente> {
+public class ClienteDao implements Dao<ClienteModel> {
 
 	private SessionFactory sf;
 	
@@ -21,7 +21,7 @@ public class ClienteDao implements Dao<Cliente> {
 	}
 	
 	@Override
-	public void insert(Cliente ce) throws SQLException {
+	public void insert(ClienteModel ce) throws SQLException {
 		EntityManager entityManager = sf.createEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 		transaction.begin();
@@ -30,7 +30,7 @@ public class ClienteDao implements Dao<Cliente> {
 	}
 
 	@Override
-	public void update(Cliente ce) throws SQLException {
+	public void update(ClienteModel ce) throws SQLException {
 		EntityManager entityManager = sf.createEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 		transaction.begin();
@@ -39,7 +39,7 @@ public class ClienteDao implements Dao<Cliente> {
 	}
 
 	@Override
-	public void delete(Cliente ce) throws SQLException {
+	public void delete(ClienteModel ce) throws SQLException {
 		EntityManager entityManager = sf.createEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 		transaction.begin();
@@ -48,23 +48,23 @@ public class ClienteDao implements Dao<Cliente> {
 	}
 
 	@Override
-	public Cliente selectOne(Cliente ce) throws SQLException {
+	public ClienteModel selectOne(ClienteModel ce) throws SQLException {
 		EntityManager entityManager = sf.createEntityManager();
-		ce = entityManager.find(Cliente.class, ce.getId());
+		ce = entityManager.find(ClienteModel.class, ce.getId());
 		return ce;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Cliente> selectAll() throws SQLException {
+	public List<ClienteModel> selectAll() throws SQLException {
 		StringBuffer sql = new StringBuffer();
 		sql.append("SELECT * FROM clientes");
 		EntityManager entityManager = sf.createEntityManager();
 		Query query = entityManager.createNativeQuery(sql.toString());
 		List<Object[]> clientesResultSet = query.getResultList();
-		List<Cliente> Clientes = new ArrayList<Cliente>();
+		List<ClienteModel> Clientes = new ArrayList<ClienteModel>();
 		for (Object[] o : clientesResultSet) {
-			Cliente ce = new Cliente();
+			ClienteModel ce = new ClienteModel();
 			ce.setId(o[0].toString());
 			ce.setNome(o[1].toString());
 			ce.setDataNasc(LocalDate.parse(o[2].toString()));

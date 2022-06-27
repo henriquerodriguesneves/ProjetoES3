@@ -1,104 +1,137 @@
 package control;
 
-import javafx.beans.property.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.TableColumn;
-//import javafx.scene.control.TableColumnBase;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import model.Cliente;
-import persistence.ClienteDAOImpl;
-
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import org.hibernate.SessionFactory;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import model.ClienteModel;
+import persistence.ClienteDao;
+import util.HibernateUtil;
 
-public class ClienteControl {
-    private ObservableList<Cliente> clientes = FXCollections.observableArrayList();
+public class ClienteControl implements OperacoesController<ClienteModel>{
+	
+	private ObservableList<ClienteModel> clientes = FXCollections.observableArrayList();
+	
+	private StringProperty id = new SimpleStringProperty();
+	private StringProperty nome = new SimpleStringProperty("");
+	private ObjectProperty<LocalDate> datanasc = new SimpleObjectProperty<>();
+	private StringProperty endereco = new SimpleStringProperty("");
+	private StringProperty telefone = new SimpleStringProperty();
+	private StringProperty cpf = new SimpleStringProperty();
+	
 
-    private StringProperty nome = new SimpleStringProperty("");
-    private ObjectProperty<LocalDate> datanasc = new SimpleObjectProperty<>();
-    private StringProperty endereco = new SimpleStringProperty("");
-    private StringProperty telefone = new SimpleStringProperty("");
-    private StringProperty cpf = new SimpleStringProperty("");
-
-    private ClienteDAOImpl dao = new ClienteDAOImpl();
-
-    private TableView<Cliente> table = new TableView<>();
-
-    public StringProperty nomeProperty() {
-        return nome;
-    }
-    public ObjectProperty<LocalDate> dataProperty() {
+	
+	private TableView<ClienteModel> table = new TableView<>();
+	
+	public StringProperty idProperty() {
+		return id;
+	}
+	public StringProperty nomeProperty() {
+		return nome;
+	}
+	public ObjectProperty<LocalDate> dataProperty() {
         return datanasc;
     }
-    public StringProperty enderecoProperty() {
-        return endereco;
-    }
-    public StringProperty telefoneProperty() {
-        return telefone;
-    }
-    public StringProperty cpfProperty() {
-        return cpf;
-    }
-
-    public ClienteControl() {
-        TableColumn<Cliente, String> col1 = new TableColumn<>("Nome");
-        col1.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        TableColumn<Cliente, String> col3 = new TableColumn<>("Endereco");
-        col3.setCellValueFactory(new PropertyValueFactory<>("endereco"));
-        TableColumn<Cliente, String> col4 = new TableColumn<>("Telefone");
+	public StringProperty enderecoProperty() {
+		return endereco;
+	}
+	public StringProperty telefoneProperty() {
+		return telefone;
+	}
+	public StringProperty cpfProperty() {
+		return cpf;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public ClienteControl() {
+		TableColumn<ClienteModel, String> col1 = new TableColumn<>("Id");
+        col1.setCellValueFactory(new PropertyValueFactory<>("id"));
+        TableColumn<ClienteModel, String> col2 = new TableColumn<>("Nome");
+        col2.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        
+        TableColumn<ClienteModel, String> col4 = new TableColumn<>("Endereco");
+        col4.setCellValueFactory(new PropertyValueFactory<>("endereco"));
+        
+        TableColumn<ClienteModel, String> col5 = new TableColumn<>("Telefone");
         col4.setCellValueFactory(new PropertyValueFactory<>("telefone"));
-        TableColumn<Cliente, String> col5 = new TableColumn<>("CPF");
-        col5.setCellValueFactory(new PropertyValueFactory<>("cpf"));
-        TableColumn<Cliente, String> col2 = new TableColumn<>("Data Nasc");
-        col2.setCellValueFactory((itemData)-> {
+        
+        TableColumn<ClienteModel, String> col6 = new TableColumn<>("Cpf");
+        col4.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+        
+        TableColumn<ClienteModel, String> col3 = new TableColumn<>("Data");
+        col3.setCellValueFactory((itemData)-> {
             LocalDate dt = itemData.getValue().getDataNasc();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            return new ReadOnlyStringWrapper(dt.format(formatter));
-            
+            return new ReadOnlyStringWrapper(dt.format(formatter));           
         });
 
-  
-		table.getColumns().addAll(col1, col2, col3, col4, col5);
 
-        table.setItems(clientes);
-    }
-
-    public void adicionar() {
-        System.out.println("Nome: " + nome.get());
-        System.out.println("DataNasc: " + datanasc.get());
-        System.out.println("Endereco: " + endereco.get());
-        System.out.println("Telefone: " + telefone.get());
-        System.out.println("CPF: " + cpf.get());
-        Cliente ce = new Cliente();
-        ce.setNome(nome.get());
-        ce.setDataNasc(datanasc.get());
-        ce.setEndereco(endereco.get());
-        ce.setTelefone(telefone.get());
-        ce.setCpf(cpf.get());
-        clientes.add(ce);
-        dao.inserir(ce);
-    }
-
-    public void pesquisar() {
-        List<Cliente> lista = dao.consultar(nome.get());
-        clientes.clear();
-        clientes.addAll(lista);
-    }
-    
-    public void limparCampos() {
-    	this.nomeProperty().setValue("");
-    	this.enderecoProperty().setValue("");
-    	this.telefoneProperty().setValue("");
-    	this.cpfProperty().setValue("");
-    	this.dataProperty().setValue(null);
-    }
-       
-    
-    public TableView getTable() {
-        return table;
-    }
-
+		
+		table.getColumns().addAll(col1, col2, col3, col4, col5, col6);
+		table.setItems(clientes);
+	}
+	
+	public void adicionar() {
+	}
+	
+	public void pesquisar() {	
+		
+	}
+	
+	public void limparCampos() {
+		this.idProperty().setValue("");
+		this.nomeProperty().setValue("");
+		this.dataProperty().setValue(null);
+		this.enderecoProperty().setValue("");
+		this.telefoneProperty().setValue("");
+		this.cpfProperty().setValue("");
+	}
+	@SuppressWarnings("rawtypes")
+	public TableView getTable() {
+		return table;
+	}
+	@Override
+	public void salvar(ClienteModel t) throws SQLException {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		ClienteDao atDao = new ClienteDao(sessionFactory);
+		atDao.insert(t);
+		
+	}
+	@Override
+	public void modificar(ClienteModel t) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void remover(ClienteModel t) throws SQLException {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		ClienteDao atDao = new ClienteDao(sessionFactory);
+		atDao.delete(t);
+		
+	}
+	@Override
+	public ClienteModel consultar(ClienteModel t) throws SQLException {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		ClienteDao atDao = new ClienteDao(sessionFactory);
+		t = atDao.selectOne(t);
+		return t;
+	}
+	@Override
+	public List<ClienteModel> listar() throws SQLException {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		ClienteDao atDao = new ClienteDao(sessionFactory);
+		List<ClienteModel> clientes = atDao.selectAll();
+		return clientes;
+	}
 }

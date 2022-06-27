@@ -1,12 +1,36 @@
 package model;
 
 import java.time.LocalDate;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
-public class Cupom {
+@Entity
+@Table(name = "cupons")
+
+public class CupomModel {
+	
+	@Id
+	@Column(name = "id_cupom")
+	@NotNull
 	private String id;
+	
+	@Column(name = "nome_cupom")
+	@NotNull
 	private String nome;
+	
+	@Column(name = "validade_cupom")
+	@NotNull
 	private LocalDate validade;
+	
+	@Column(name = "codigo_cupom")
+	@NotNull
 	private String codigo;
+	
+	@Column(name = "valor_cupom")
+	@NotNull
 	private String valor;
 	
 	public String getId() {

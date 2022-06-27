@@ -54,5 +54,7 @@
 	<classpathentry kind="lib" path="src/lib/mysql-connector-java-8.0.28.jar"/>
 	<classpathentry kind="lib" path="src/lib/protobuf-java-3.11.4.jar"/>
 	<classpathentry kind="lib" path="src/lib/txw2-3.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate-search-engine-5.8.0.Final.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate-search-orm-5.8.0.Final.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

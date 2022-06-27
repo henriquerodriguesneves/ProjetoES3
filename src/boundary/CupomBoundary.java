@@ -59,7 +59,7 @@ public class CupomBoundary extends Application {
 
         Bindings.bindBidirectional(control.nomeProperty(), txtNome.textProperty());
         Bindings.bindBidirectional(
-                txtValidade.textProperty(), control.dataProperty(), ldc);
+                txtValidade.textProperty(), control.validadeProperty(), ldc);
         Bindings.bindBidirectional(control.codigoProperty(), txtCodigo.textProperty());
         Bindings.bindBidirectional(control.valorProperty(), txtValor.textProperty());
 
@@ -74,7 +74,6 @@ public class CupomBoundary extends Application {
         System.exit(0)
         );
         
-        btnX.setOnAction(e -> control.mostraValor()); 
         
         
         btnLimpar.setOnAction(e -> control.limparCampos());

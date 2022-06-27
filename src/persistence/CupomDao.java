@@ -10,9 +10,9 @@ import org.hibernate.SessionFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Query;
-import model.Cupom;
+import model.CupomModel;
 
-public class CupomDao implements Dao<Cupom> {
+public class CupomDao implements Dao<CupomModel> {
 
 	private SessionFactory sf;
 	
@@ -21,7 +21,7 @@ public class CupomDao implements Dao<Cupom> {
 	}
 	
 	@Override
-	public void insert(Cupom cm) throws SQLException {
+	public void insert(CupomModel cm) throws SQLException {
 		EntityManager entityManager = sf.createEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 		transaction.begin();
@@ -30,7 +30,7 @@ public class CupomDao implements Dao<Cupom> {
 	}
 
 	@Override
-	public void update(Cupom cm) throws SQLException {
+	public void update(CupomModel cm) throws SQLException {
 		EntityManager entityManager = sf.createEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 		transaction.begin();
@@ -39,7 +39,7 @@ public class CupomDao implements Dao<Cupom> {
 	}
 
 	@Override
-	public void delete(Cupom cm) throws SQLException {
+	public void delete(CupomModel cm) throws SQLException {
 		EntityManager entityManager = sf.createEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 		transaction.begin();
@@ -48,23 +48,23 @@ public class CupomDao implements Dao<Cupom> {
 	}
 
 	@Override
-	public Cupom selectOne(Cupom cm) throws SQLException {
+	public CupomModel selectOne(CupomModel cm) throws SQLException {
 		EntityManager entityManager = sf.createEntityManager();
-		cm = entityManager.find(Cupom.class, cm.getId());
+		cm = entityManager.find(CupomModel.class, cm.getId());
 		return cm;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Cupom> selectAll() throws SQLException {
+	public List<CupomModel> selectAll() throws SQLException {
 		StringBuffer sql = new StringBuffer();
 		sql.append("SELECT * FROM cupons");
 		EntityManager entityManager = sf.createEntityManager();
 		Query query = entityManager.createNativeQuery(sql.toString());
 		List<Object[]> cuponsResultSet = query.getResultList();
-		List<Cupom> Cupons = new ArrayList<Cupom>();
+		List<CupomModel> Cupons = new ArrayList<CupomModel>();
 		for (Object[] o : cuponsResultSet) {
-			Cupom cm = new Cupom();
+			CupomModel cm = new CupomModel();
 			cm.setId(o[0].toString());
 			cm.setNome(o[1].toString());
 			cm.setValidade(LocalDate.parse(o[2].toString()));
