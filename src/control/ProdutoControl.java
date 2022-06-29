@@ -20,7 +20,14 @@ import model.ProdutoModel;
 import persistence.ProdutoDao;
 import util.HibernateUtil;
 
-public class ProdutoControl implements OperacoesController<ProdutoModel>{
+public class ProdutoControl implements OperacoesController<ProdutoModel>, IObservavel{
+	
+	private CupomControl cupom;
+	private String acao;
+	
+	public ProdutoControl(CupomControl cupom) {
+		this.cupom = cupom;
+	}
 	
 	private ObservableList<ProdutoModel> produtos = FXCollections.observableArrayList();
 	
@@ -68,14 +75,8 @@ public class ProdutoControl implements OperacoesController<ProdutoModel>{
 	}
 	
 	public void adicionar() {
-//		ProdutoModel p = new ProdutoModel();
-//		p.setCodigo(codigo.get());
-//		p.setDescricao(descricao.get());
-//		p.setFabricante(fabricante.get());
-//		p.setTipo(tipo.get());
-//		p.setLote(lote.get());
-//		produtos.add(p);
-//		dao.inserir(p);
+		System.out.println("Criando novo produto");
+        cupom.update(acao);
 	}
 	
 	public void pesquisar() {
@@ -128,5 +129,11 @@ public class ProdutoControl implements OperacoesController<ProdutoModel>{
 		ProdutoDao atDao = new ProdutoDao(sessionFactory);
 		List<ProdutoModel> produtos = atDao.selectAll();
 		return produtos;
+	}
+	
+	@Override
+	public void notificaMudanca(String acao) {
+		cupom.update(acao);
+		
 	}
 }

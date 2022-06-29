@@ -19,7 +19,7 @@ import model.CupomModel;
 import persistence.CupomDao;
 import util.HibernateUtil;
 
-public class CupomControl implements OperacoesController<CupomModel>{
+public class CupomControl implements OperacoesController<CupomModel>, IObservador{
 	
 	private ObservableList<CupomModel> Cupoms = FXCollections.observableArrayList();
 	
@@ -128,5 +128,13 @@ public class CupomControl implements OperacoesController<CupomModel>{
 		CupomDao atDao = new CupomDao(sessionFactory);
 		List<CupomModel> Cupoms = atDao.selectAll();
 		return Cupoms;
+	}
+	
+	@Override
+	public void update(String acao) {
+		if (acao == "Criando novo produto") {
+			System.out.println("Gerando novo cupom");
+		}
+		
 	}
 }
